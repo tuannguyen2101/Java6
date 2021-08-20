@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "spring.jpahibernate.dialect",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.jpahibernate.dialect'"
+  },
+  {
+    "name": "spring.jpa.hibernate.dialect",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.jpa.hibernate.dialect'"
+  }
+]}

@@ -1,0 +1,49 @@
+<div class="panel panel-default" ng-if="items">
+  <div class="panel-heading">PRODUCT LIST</div>
+  <table class="table table-condensed">
+    <thead class="bg-success" style="font-variant: small-caps;">
+      <tr>
+        <th ng-click="sortBy('id')">ID</th>
+        <th ng-click="sortBy('name')">Name</th>
+        <th ng-click="sortBy('price')">Price</th>
+        <th ng-click="sortBy('createDate')">Date</th>
+        <th ng-click="sortBy('image')">Image</th>
+        <th ng-click="sortBy('category.name')">Category</th>
+        <th ng-click="sortBy('available')">Available</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in pager.items">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.price | number : 2}}</td>
+        <td>{{item.createDate | date : 'dd-MM-yyyy'}}</td>
+        <td>{{item.image}}</td>
+        <td>{{item.category.name}}</td>
+        <td>{{item.available ? 'Yes' : 'No'}}</td>
+        <td>
+          <div class="btn-group btn-group-xs">
+            <button ng-click="edit(item)" class="btn btn-warning glyphicon glyphicon-edit"></button>
+            <button ng-click="delete(item)" class="btn btn-danger glyphicon glyphicon-trash"></button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="panel-footer text-center" style="font-family: Arial;">
+    <button ng-click="pager.first()" class="btn btn-danger">
+      <b class="glyphicon glyphicon-arrow-left"></b> FIRST
+    </button>
+    <button ng-click="pager.prev()" class="btn btn-primary">
+      <b class="glyphicon glyphicon-chevron-left"></b> PREV
+    </button>
+    <button class="btn btn-success">{{pager.page + 1}} of {{pager.count}}</button>
+    <button ng-click="pager.next()" class="btn btn-primary">
+      NEXT <b class="glyphicon glyphicon-chevron-right"></b>
+    </button>
+    <button ng-click="pager.last()" class="btn btn-danger">
+      LAST <b class="glyphicon glyphicon-arrow-right"></b>
+    </button>
+  </div>
+</div>
